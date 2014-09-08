@@ -1,45 +1,42 @@
 <div class = "taco">
 <%= @name %><br>
 <%= @address %>
-<% @lat %>
-<% @long %>
+<%= @lat %>
+<%= @long %>
 </div>
-<script>
-$(function (){
-	var mapOptions = {
-    center: new google.maps.LatLng(37.776616, -122.416972),
-    zoom: 12,
-    scrollwheel: false,
-    mapTypeId: google.maps.MapTypeId.ROADMAP,
-    styles: [{"stylers":[{"saturation":-75},{"gamma":0.8},{"lightness":4},{"visibility":"on"}]},{"featureType":"landscape.natural","stylers":[{"visibility":"on"},{"color":"#FFFFFF"},{"gamma":4.97},{"lightness":-5},{"saturation":50}]}]
-  };
-  var map = new google.maps.Map(document.getElementById("out"),
-  mapOptions);
 
-  // var loadGeo = function() {
-  //     var url = "<a href=/results" +"?lat=" + <%= @lat %> + "&long=" + <%= @long %> + ">" + "</a>";
-  //     $.ajax(url, {
-  //       type: 'get'
-  //     }).success(function(data) {
-  //       for (var i in data) {
-  //         addPin(, data[i].long, data[i].name, data[i].address);
-  //       }
-  //     });
-  //   };
-  //   loadGeo();
-
-    function addPin(lat, long) {
-      var loc = new google.maps.LatLng(lat, long);
-      console.log(loc);
-      var newMarker = new google.maps.Marker({
-        position: loc,
-        map: map,
-        icon: "http://i.imgur.com/xYtLJ5D.png",
-        animation: google.maps.Animation.DROP,
-        title: name
-      });
-    }
-      addPin(<%= @lat %>,<%= @long %>)
-});
-</script>
 <div id="out"></div>
+
+
+
+<!-- // function geoFindMe() {
+//   var output = document.getElementById("out");
+
+//   if (!navigator.geolocation){
+//     output.innerHTML = "<p>Geolocation is not supported by your browser</p>";
+//     return;
+//   }
+
+//   function success(position) {
+//     var latitude  = position.coords.latitude;
+//     var longitude = position.coords.longitude;
+
+//     output.innerHTML = '<p>Latitude is ' + latitude + '° <br>Longitude is ' + longitude + '°</p>';
+
+//     var img = new Image();
+//     img.src = "http://maps.googleapis.com/maps/api/staticmap?center=" + latitude + "," + longitude + "&zoom=13&size=300x300&sensor=false";
+
+//     output.appendChild(img);
+//   };
+
+//   function error() {
+//     output.innerHTML = "Unable to retrieve your location";
+//   };
+
+//   output.innerHTML = "<p>Locating…</p>";
+
+//   navigator.geolocation.getCurrentPosition(success, error);
+// }
+
+// $("#hangry").click(geoFindMe);
+//  -->

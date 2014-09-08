@@ -3,6 +3,11 @@ Rails.application.routes.draw do
   root 'location#index'
 
   get '/results' => 'location#results'
+
+ #  Prefix Verb URI Pattern        Controller#Action
+ #    root GET  /                  location#index
+ # results GET  /results(.:format) location#results
+ 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
