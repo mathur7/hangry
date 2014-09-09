@@ -13,8 +13,8 @@ class LocationController < ApplicationController
     @rating_image = response.businesses[0].rating_img_url_small
     @phone = response.businesses[0].phone
     @image = response.businesses[0].image_url
-    # @lat =  response.businesses[0].location.coordinate.latitude
-    # @long = response.businesses[0].location.coordinate.longitude
+    @lat =  response.region.center.latitude
+    @long = response.region.center.longitude
   end
 
 end
